@@ -1,0 +1,13 @@
+*{
+    margin: 0px;
+    padding: 0px;
+}
+.drop_style{
+    display: flex;
+    /* justify-content: flex-start; */
+    font-weight: 800;
+    font-size: x-large;
+    padding: 10px;
+    cursor: pointer;
+    
+}

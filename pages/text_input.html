@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport"
+		content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="../stylesheets/text_input_style.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<title>Tranlation page</title>
+</head>
+
+<body>
+
+	<nav class="header">Translate It</nav>
+	<div class="main">
+		<div class="translation-box">
+			<textarea id="inputtext" style="width: 900px; height: 300px;"
+					placeholder="Enter the sentence">
+			</textarea>
+		</div>
+
+		<!-- <button id="btn-translate" onclick="eng_to_Bhoj('inputtext')">Translate to Bhojpuri</button> -->
+		<button id="btn-translate" onclick="eng_to_hindi('inputtext')">Translate to Hindi</button>
+
+		<div id="translated-box">
+			<textarea id="input-text" style="width: 900px; height: 300px;"
+				placeholder="Here you will se translated text">
+			</textarea>
+
+		</div>
+	</div>
+	<footer class="footer">About Us</footer>
+	<script>
+		function eng_to_Bhoj(id) {
+		  let element=document.getElementById(id);
+		  $.ajax({
+			url:"http://127.0.0.1:8000/eng-to-Bhoj",
+			type:`POST`,
+			data:{
+			  'text':element.textContent,
+			},
+			success:(res)=>{
+			  element.textContent=res.text;
+			}
+		  })
+		}
+		function eng_to_hindi(id) {
+		  let element=document.getElementById(id);
+		  $.ajax({
+			url:"http://127.0.0.1:8000/eng-to-hindi",
+			type:`POST`,
+			data:{
+			  'text':element.textContent,
+			},
+			success:(res)=>{
+			  element.textContent=res.text;
+			}
+		  })
+		}
+	  </script>
+</body>
+
+</html>
